@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This website for Health Assistant tool by Jahirul Islam">
+    <meta name="keywords" content="HealthAssistant, health assistant, all health tool,age calculator, bmi, bmi calculator, gestational age">
+    <meta name="author" content="Jahirul Islam,mrJahirul">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+   
+    
+    <title>Health Assistant Home</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/card.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="brand title">Health Assistant</a>
+            <div class="nav-links">
+                <a href="component/bmiCalculate.html">BMI</a>
+                <a href="component/ageCalculate.html">Age Calculator</a>
+                <a href="../component/gestational.html">Gestational Age</a>
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </nav>
+    <header class="hero myHero">
+        <h1> <span class="spanH1"> Health Assistant </span>Tools🔧</h1>
+        <p>Calculate your BMI and Age easily with our tools</p>
+    </header>
+    <section id="bmi" class="cardSection">
+        <div class="card">
+            <div class="card-header">
+                <img src="img/agec.png" alt="Card Image">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Age Calculate</h2>
+                <p class="card-text">This tool for calculate age.</p>
+                <a href="component/ageCalculate.html" class="card-button">Click</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="img/bmi.avif" alt="Card Image">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">BMI</h2>
+                <p class="card-text">This tool for calculate BMI.</p>
+                <a href="component/bmiCalculate.html" class="card-button">Click</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="img/ges.jpg" alt="Card Image">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Gestational Age</h2>
+                <p class="card-text">This tool for calculate Gestational Age.</p>
+                <a href="component/gestationalAge.html" class="card-button">Click</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- counter -->
+    <div class="containerC">
+        <h1>Visitor Counter</h1>
+        <p>Welcome! You are visitor number <span id="counter">0</span>.</p>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>

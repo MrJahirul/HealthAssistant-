@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 1.5em;
+}
+.title {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: #f4f4f4;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+.cardSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* counter */
+
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+
+.containerC {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 415px;
+    width: 100%;
+    
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color:green
+}
+
+p {
+    font-size: 18px;
+}
+#counter{
+    color: red;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav-links a {
+        margin: 10px 0px;
+    }
+
+    .burger {
+        display: flex;
+    }
+    .hero {
+        text-align: center;
+        padding: 40px 20px;
+        background: #f4f4f4;
+    }
+    .brand {
+        font-weight: 600;
+        font-size: 1em;
+        border-bottom: 1px solid red;
+    }
+   
+    .cardSection {
+        width: 100%;
+        max-width: 550px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.2s;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+        
+    }
+   
+
+    .hero {
+        text-align: center;
+        padding: 40px 20px;
+        background: #f4f4f4;
+        font-size: 1em;
+    }
+    .spanH1{
+        color: red;
+    }
+   
+    
+}
+
+@media (max-width: 768px) {
+    .nav-links.active {
+        display: flex;
+        
+    }
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMP Calculator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 30px;
+        }
+        
+        .containerp {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            font-size: 1.5em;
+        }
+        .title {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .burger .line {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 3px 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+            }
+        
+            .nav-links a {
+                margin: 10px 0;
+            }
+        
+            .burger {
+                display: flex;
+            }
+            .brand {
+                font-weight: 600;
+                font-size: 1em;
+                border-bottom: 1px solid red;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links.active {
+                display: flex;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="containerp">
+            <a href="#" class="brand title">Health Assistant</a>
+            <div class="nav-links">
+                <a href="../component/bmiCalculate.html">BMI</a>
+                <a href="../component/ageCalculate.html">Age Calculator</a>
+                <a href="component/gestational.html">Gestational Age</a>
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>LMP Calculator</h2>
+        <form>
+            <div class="form-group">
+                <label for="lmp">Last Menstrual Period (LMP)</label>
+                <input type="date" id="lmp" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <button class="btn" id="calculate">Calculate</button>
+            </div>
+            <div class="result" id="result"></div>
+        </form>
+    </div>
+
+    <script>
+        const lmpInput = document.getElementById('lmp');
+        const calculateButton = document.getElementById('calculate');
+        const resultDiv = document.getElementById('result');
+
+        calculateButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lmp = new Date(lmpInput.value);
+            const gestationalAge = calculateGestationalAge(lmp);
+            const estimatedDueDate = calculateEstimatedDueDate(lmp);
+            resultDiv.innerHTML = `
+                <p>Gestational Age: ${gestationalAge} weeks</p>
+                <p>Estimated Due Date: ${estimatedDueDate.toLocaleDateString()}</p>
+            `;
+        });
+
+        function calculateGestationalAge(lmp) {
+            const today = new Date();
+            const difference = today.getTime() - lmp.getTime();
+            const weeks = Math.floor(difference / (7 * 24 * 60 * 60 * 1000));
+            return weeks;
+        }
+
+        function calculateEstimatedDueDate(lmp) {
+            const estimatedDueDate = new Date(lmp.getTime() + (280 * 24 * 60 * 60 * 1000));
+            return estimatedDueDate;
+        }
+    </script>
+    <script src="../js/index.js"></script>
+</body>
+</html>
