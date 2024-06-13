@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age and BMI Calculator</title>
+    <title>BMI Calculator</title>
     <link rel="stylesheet" href="../css/ageBmiCalculate.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
@@ -26,17 +26,8 @@
     </nav>
     <header class="hero">
         <h1>BMI Calculator</h1>
-        <p>Calculate your BMI easily with our tools</p>
+        <p>Calculate your BMI easily with our tool</p>
     </header>
-    <!-- <section id="age">
-        <h2>Age Calculator</h2>
-        <form id="age-form">
-            <label for="birthdate">Enter your birthdate:</label>
-            <input type="date" id="birthdate" name="birthdate" required>
-            <button type="submit">Calculate Age</button>
-        </form>
-        <p id="age-result"></p>
-    </section> -->
     <section id="bmi">
         <form id="bmi-form">
             <label for="height">Enter your height (in cm):</label>
@@ -45,7 +36,8 @@
             <input type="number" id="weight" name="weight" required>
             <button type="submit">Calculate BMI</button>
         </form>
-        <p id="bmi-result"></p>
+        <div id="bmi-result"></div> <!-- Updated to display BMI result -->
+        <div id="bmi-category"></div> <!-- New div for BMI category display -->
     </section>
     <script src="../js/bmi.js"></script>
     <script src="../js/ageBmiCalculate.js"></script>

@@ -1,39 +1,63 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
+document.addEventListener("DOMContentLoaded", function () {
+    const bmiForm = document.getElementById("bmi-form");
+    const bmiResult = document.getElementById("bmi-result");
+    const bmiCategory = document.getElementById("bmi-category");
 
-    burger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
- 
-    // BMI Calculation function
-    const calculateBMI = (height, weight) => {
-        // Convert height from cm to meters
-        const heightInMeters = height / 100;
-        // Calculate BMI
-        const bmi = weight / (heightInMeters * heightInMeters);
-        return bmi.toFixed(2); // Round to 2 decimal places
-    };
-
-    // BMI Category function
-    const getBMICategory = (bmi) => {
-        if (bmi < 18.5) return "Underweight";
-        if (bmi >= 18.5 && bmi < 24.9) return "Normal weight";
-        if (bmi >= 25 && bmi < 29.9) return "Overweight";
-        return "Obese";
-    };
-
-    // Event listener for the BMI form submission
-    const bmiForm = document.querySelector('#bmi-form');
-    const bmiResult = document.querySelector('#bmi-result');
-
-    bmiForm.addEventListener('submit', (event) => {
+    bmiForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        const height = parseFloat(event.target.elements['height'].value);
-        const weight = parseFloat(event.target.elements['weight'].value);
+
+        // Get height and weight values
+        const height = parseFloat(document.getElementById("height").value);
+        const weight = parseFloat(document.getElementById("weight").value);
+
+        // Calculate BMI
         const bmi = calculateBMI(height, weight);
-        const category = getBMICategory(bmi);
-        bmiResult.textContent = `Your BMI is: ${bmi} (${category}).`;
+
+        // Display BMI result
+        bmiResult.textContent = `Your BMI: ${bmi.toFixed(1)}`;
+
+        // Determine BMI category
+        let category;
+        if (bmi < 18.5) {
+            category = "Underweight";
+        } else if (bmi >= 18.5 && bmi < 25) {
+            category = "Normal weight";
+        } else if (bmi >= 25 && bmi < 30) {
+            category = "Overweight";
+        } else {
+            category = "Obese";
+        }
+
+        // Display BMI category with colored circle
+        displayCategory(category);
     });
+
+    function calculateBMI(height, weight) {
+        // BMI formula: weight (kg) / (height (m) * height (m))
+        return weight / ((height / 100) * (height / 100));
+    }
+
+    function displayCategory(category) {
+        // Clear previous category display
+        bmiCategory.innerHTML = "";
+
+        // Create and append colored circle
+        const circle = document.createElement("div");
+        circle.classList.add("circle");
+        if (category === "Normal weight") {
+            circle.classList.add("green");
+        } else if (category === "Overweight") {
+            circle.classList.add("yellow");
+        } else if (category === "Underweight") {
+            circle.classList.add("blue");
+        } else if (category === "Obese") {
+            circle.classList.add("red");
+        }
+        bmiCategory.appendChild(circle);
+
+        // Display category text
+        const categoryText = document.createElement("p");
+        categoryText.textContent = category;
+        bmiCategory.appendChild(categoryText);
+    }
 });
