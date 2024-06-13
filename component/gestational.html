@@ -106,6 +106,11 @@
         .burger.cross .line:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
         }
+        .plus-icon {
+            color: red;
+            font-size: 1.5em;
+            margin-left: 5px;
+        }
 
         @media (max-width: 768px) {
             .nav-links {
@@ -145,7 +150,9 @@
 <body>
     <nav class="navbar">
         <div class="containerp">
-            <a href="#" class="brand title">Health Assistant</a>
+            <a href="#" class="brand title">Health Assistant
+                <span class="plus-icon">+</span>
+            </a>
             <div class="nav-links">
                 <a href="../component/bmiCalculate.html">BMI</a>
                 <a href="../component/ageCalculate.html">Age Calculator</a>
