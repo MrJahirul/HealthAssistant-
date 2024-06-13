@@ -32,8 +32,6 @@ body {
     margin-left: 20px;
 }
 
-
-
 .burger {
     display: none;
     flex-direction: column;
@@ -133,8 +131,8 @@ button:hover {
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
-        flex-direction: column;
+    display: none;
+    flex-direction: column;
     }
 
     .nav-links a {
