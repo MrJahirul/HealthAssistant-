@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     burger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        burger.classList.toggle('cross');
     });
-}
-)
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     let counter = localStorage.getItem('counter');
 
